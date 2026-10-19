@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אי צ'ינג — ניתוח שלוש השאלות</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0c10;--card:#14161c;--gold:#e8c56a;--text:#f3f1ea;--muted:#b8b4a8;--line:#2a2d36;--green:#8fd19e;--red:#f08a7a;--blue:#8ab8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Heebo',system-ui,sans-serif;font-size:24px;line-height:1.65;font-weight:300}
+.wrap{max-width:1100px;margin:0 auto;padding:60px 28px 120px}
+header{text-align:center;padding:40px 0 70px;border-bottom:1px solid var(--line);margin-bottom:70px}
+header h1{font-size:clamp(48px,8vw,96px);font-weight:900;letter-spacing:-1px;line-height:1.05;color:var(--gold)}
+header p{font-size:clamp(22px,3vw,32px);color:var(--muted);margin-top:20px}
+.method{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 36px;font-size:22px;color:var(--muted);margin-bottom:80px}
+.method b{color:var(--text);font-weight:700}
+section.q{margin-bottom:120px}
+.tag{display:inline-block;background:var(--gold);color:#111;font-weight:900;font-size:22px;padding:6px 20px;border-radius:999px;margin-bottom:18px}
+h2{font-size:clamp(42px,6vw,72px);font-weight:900;line-height:1.1;margin-bottom:10px}
+h2 small{display:block;font-size:0.45em;font-weight:400;color:var(--muted);margin-top:10px}
+.hexrow{display:flex;gap:40px;align-items:center;flex-wrap:wrap;margin:36px 0 50px}
+.hex{display:flex;flex-direction:column-reverse;gap:10px;width:160px}
+.hex .l{height:16px;background:var(--text);border-radius:4px}
+.hex .l.yin{background:linear-gradient(90deg,var(--text) 0 42%,transparent 42% 58%,var(--text) 58%)}
+.hex .l.chg{background:var(--gold)}
+.hex .l.yin.chg{background:linear-gradient(90deg,var(--gold) 0 42%,transparent 42% 58%,var(--gold) 58%)}
+.arrow{font-size:60px;color:var(--gold)}
+.hexlabel{font-size:20px;color:var(--muted);text-align:center;margin-top:12px}
+.hexwrap{text-align:center}
+h3{font-size:clamp(30px,4vw,44px);font-weight:700;color:var(--gold);margin:50px 0 18px}
+p{margin-bottom:22px}
+.quote{border-right:6px solid var(--gold);padding:18px 28px;background:var(--card);border-radius:0 16px 16px 0;font-size:26px;font-weight:400;margin:24px 0 30px}
+.quote span{display:block;font-size:19px;color:var(--muted);margin-top:8px}
+.line{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 34px;margin-bottom:24px}
+.line .n{font-weight:900;color:var(--gold);font-size:28px;margin-bottom:8px}
+.line .n em{font-style:normal;font-weight:400;color:var(--muted);font-size:20px;margin-right:12px}
+.bottom{background:linear-gradient(135deg,#1c1a12,#14161c);border:2px solid var(--gold);border-radius:24px;padding:40px 44px;margin-top:50px}
+.bottom h3{margin-top:0;font-size:clamp(34px,4.5vw,50px)}
+.bottom ul{list-style:none}
+.bottom li{font-size:26px;font-weight:400;padding:14px 0;border-bottom:1px solid var(--line)}
+.bottom li:last-child{border:none}
+.bottom li::before{content:"←";color:var(--gold);font-weight:900;margin-left:14px}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:44px}
+.sum h2{font-size:clamp(38px,5vw,60px)}
+.good{color:var(--green)}.warn{color:var(--red)}.info{color:var(--blue)}
+footer{margin-top:90px;font-size:18px;color:var(--muted);text-align:center;line-height:1.8}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<h1>אי צ'ינג<br>שלוש שאלות, שלוש תשובות</h1>
+<p>ניתוח על פי וילהלם/ביינס, ריצ'רד ג'ון לין (פירוש ואנג בי) ואלפרד הואנג</p>
+</header>
+
+<div class="method">
+<b>שיטה:</b> Heads = 3, Tails = 2. הטלה ראשונה = קו תחתון. סכום 6 = יין משתנה, 9 = יאנג משתנה (מסומנים בזהב). לפי כלל ג'ו שי, כששני קווים משתנים – שניהם נקראים, <b>הקו העליון מכריע</b>. לכל שאלה: הקסגרמה ראשית → קווים משתנים → הקסגרמה נגזרת (לאן זה הולך).
+</div>
+
+<!-- ============ Q1 ============ -->
+<section class="q">
+<span class="tag">שאלה 1</span>
+<h2>59 · הוּאַן · הִתְפַּזְּרוּת <small>Huan / Dispersion — רוח מעל מים · משתנה אל 12 · פִּי · קִפָּאוֹן (Standstill)</small></h2>
+
+<div class="hexrow">
+<div class="hexwrap"><div class="hex">
+<div class="l yin"></div><div class="l chg"></div><div class="l yin"></div><div class="l yin chg"></div><div class="l"></div><div class="l"></div>
+</div><div class="hexlabel">59 הִתְפַּזְּרוּת</div></div>
+<div class="arrow">←</div>
+<div class="hexwrap"><div class="hex">
+<div class="l yin"></div><div class="l yin"></div><div class="l yin"></div><div class="l"></div><div class="l"></div><div class="l"></div>
+</div><div class="hexlabel">12 קִפָּאוֹן</div></div>
+</div>
+
+<h3>המצב עכשיו</h3>
+<div class="quote">"התפזרות. הצלחה. המלך ניגש אל מקדשו. כדאי לחצות את המים הגדולים. התמדה מועילה."<span>פסק הדין, וילהלם</span></div>
+<p>רוח נושבת על פני מים קפואים ומפשירה אותם. התמונה היא של <b>קשיחות שמתמוססת</b>: אגו, התבצרות, יחס קר או מערכת שנתקעה. זה לא הקסגרמה של משבר, זו הקסגרמה של <b>פירוק שמוביל לבנייה מחדש</b>. "המלך ניגש אל מקדשו" – צריך מרכז, אידאה או מטרה גדולה שסביבה כולם מתאחדים מחדש. "לחצות את המים הגדולים" – זה זמן למהלך משמעותי, לא לישיבה בצד.</p>
+<p>לין (ואנג בי) מדגיש: ההתפזרות כאן היא <b>פעולה מכוונת</b>, לא תאונה. מפזרים את מה שחוסם כדי לאפשר זרימה. הואנג מוסיף: ההקסגרמה מתארת שיטפון שהרוח מפזרת – הסכנה (מים = סכנה) נמצאת למטה, הרוח העדינה (חדירה, השפעה הדרגתית) למעלה. הפתרון הוא <b>עדינות והתמדה, לא כוח</b>.</p>
+
+<h3>הקווים המשתנים</h3>
+<div class="line"><div class="n">קו 2 <em>תשע במקום השני</em></div>
+<div class="quote">"בעת ההתפזרות הוא ממהר אל מה שתומך בו. החרטה נעלמת."</div>
+<p>יש בך (או במצב) ניצנים של ניכור, חוסר סבלנות או רוגז כלפי אנשים מעורבים. ההנחיה: <b>רוץ אל העוגן שלך</b> – שיקול דעת מאוזן, רצון טוב, ההבסיס שמחזיק אותך. אם תעשה את זה, לא תהיה חרטה. אם תיתן למרירות להוביל, ההתפזרות תהפוך להתפרקות.</p></div>
+<div class="line"><div class="n">קו 4 <em>שש במקום הרביעי · הקו המכריע</em></div>
+<div class="quote">"הוא מפרק את הקשר עם קבוצתו. מזל טוב עליון. התפזרות מובילה בתורה להצטברות. זה דבר שאנשים רגילים אינם חושבים עליו."</div>
+<p>זה אחד הקווים החזקים ביותר בכל הספר – <b>"מזל טוב עליון"</b>. המסר: כדי להשיג את הדבר הגדול, צריך להרפות ממעגל קרוב, מנוחות ישנה, מהסכמות של "החבורה". מי שמעז לוותר על הקרוב זוכה ברחוק. זו החלטה שאנשים רגילים לא מבינים בזמן אמת, ורק אחר כך רואים שהיא הייתה נכונה.</p></div>
+
+<h3>לאן זה הולך: 12 · קִפָּאוֹן</h3>
+<div class="quote">"קיפאון. אנשים רעים אינם מקדמים את התמדת האדם הנעלה. הגדול הולך, הקטן מתקרב."</div>
+<p>כאן האזהרה. ההקסגרמה הנגזרת מראה את <b>הטווח הארוך אם המהלך לא נעשה נכון</b>: שמיים ואדמה מתרחקים, אין תקשורת בין למעלה ללמטה, דברים נתקעים. הקריאה המשולבת: <b>חלון ההזדמנות של ההתפזרות הוא זמני</b>. אם תעשה את הפירוק המכוון עכשיו (קו 4) ותישאר מעוגן (קו 2), תגיע להצטברות חדשה. אם תגרור רגליים או תפעל ממרירות, המצב יקפא ותצטרך לחכות מחזור שלם עד שהוא יתפרק מעצמו.</p>
+
+<div class="bottom"><h3>שורה תחתונה לשאלה 1</h3><ul>
+<li class="good">התשובה חיובית מאוד, אך <b>מותנית בפעולה</b>: זה זמן לפרק מבנה/קשר/הרגל שמחזיק אותך במקום.</li>
+<li>הפירוק צריך להיעשות מתוך מרכז יציב ורצון טוב, לא מתוך כעס.</li>
+<li class="warn">אי-פעולה = קיפאון. אל תחכה "שזה יסתדר". ההזדמנות היא עכשיו.</li>
+<li>ויתור על הקרוב והנוח הוא המפתח לרווח הגדול.</li>
+</ul></div>
+</section>
+
+<!-- ============ Q2 ============ -->
+<section class="q">
+<span class="tag">שאלה 2</span>
+<h2>9 · שְׂיָאוֹ צ'וּ · כּוֹחַ הָרִסּוּן שֶׁל הַקָּטָן <small>Hsiao Ch'u / The Taming Power of the Small — רוח מעל שמיים · משתנה אל 59 · הִתְפַּזְּרוּת</small></h2>
+
+<div class="hexrow">
+<div class="hexwrap"><div class="hex">
+<div class="l chg"></div><div class="l"></div><div class="l chg"></div><div class="l yin"></div><div class="l"></div><div class="l"></div>
+</div><div class="hexlabel">9 כוח הריסון של הקטן</div></div>
+<div class="arrow">←</div>
+<div class="hexwrap"><div class="hex">
+<div class="l yin"></div><div class="l"></div><div class="l yin"></div><div class="l yin"></div><div class="l"></div><div class="l"></div>
+</div><div class="hexlabel">59 התפזרות</div></div>
+</div>
+
+<h3>המצב עכשיו</h3>
+<div class="quote">"כוח הריסון של הקטן. הצלחה. עננים כבדים, אין גשם מאזורנו שבמערב."<span>פסק הדין, וילהלם</span></div>
+<p>חמישה קווי יאנג חזקים ו<b>קו יין אחד (קו 4) מרסן את כולם</b>. יש כוח גדול, יש רצון, יש פוטנציאל אדיר – אבל גורם קטן אחד עוצר את הפריצה. "עננים כבדים ואין גשם": הכול בשל, אבל <b>עדיין לא יורד</b>. וילהלם מקשר את זה למלך ון שהיה כלוא בחצר העריץ – יכול היה להשפיע רק בשכנוע עדין, לא בכוח.</p>
+<p>לין (ואנג בי): זה זמן של <b>הכנה, לא של ביצוע</b>. ההשפעה האפשרית כעת היא מצטברת, קטנה, הדרגתית. הואנג: "הטיפוח הקטן" – לצבור, לעדן, לשפר פרטים. התמונה: "האדם הנעלה מעדן את הצד החיצוני של טבעו" – עבודה על ההצגה, הפרטים והיופי של הדבר, כי את המהלך הגדול אי אפשר לעשות עדיין.</p>
+
+<h3>הקווים המשתנים</h3>
+<div class="line"><div class="n">קו 1 <em>תשע בתחתית</em></div>
+<div class="quote">"חזרה אל הדרך. איך יכולה להיות בזה אשמה? מזל טוב."</div>
+<p>האדם החזק נוטה לדחוף קדימה, נתקל בחסימה, ו<b>חוזר אל הדרך המתאימה לו</b> – למקום שבו הוא חופשי להתקדם או לסגת. זה קו טוב: אין בושה בנסיגה טקטית. לא להשיג דבר בכוח. לחזור לבסיס, לדרך שעבדה.</p></div>
+<div class="line"><div class="n">קו 3 <em>תשע במקום השלישי · הקו המכריע</em></div>
+<div class="quote">"החישורים נשברים מגלגלי העגלה. איש ואישה מגלגלים עיניים."</div>
+<p>זו האזהרה החדה בקריאה. ניסיון <b>לפרוץ בכוח מתוך הנחה שהמכשול קטן</b> – והמכשול מתגלה כחזק יותר. העגלה נעצרת. נוצרים ויכוחים מתישים בין שותפים ("איש ואישה מגלגלים עיניים"). וילהלם: "הוא חווה דחייה במקום שבו ציפה לניצחון קל, ומתפשר על כבודו." קו 1 אומר "חזור לדרך", קו 3 מראה מה קורה אם לא תחזור: שבר במנגנון ומריבה.</p></div>
+
+<h3>לאן זה הולך: 59 · הִתְפַּזְּרוּת</h3>
+<p>ההקסגרמה הנגזרת היא בדיוק ההקסגרמה הראשית של שאלה 1 – <b>קשר ישיר בין שתי השאלות</b>. אם בשאלה 2 תנהג נכון (לא לדחוף בכוח, לחזור לדרך, לצבור בקטן), המצב יגיע להתפזרות: המתח ישתחרר, הקשיחות תתמוסס, והגשם ירד. אם תדחף – השבר יקרה בכל מקרה, רק בצורה כואבת (חישורים נשברים).</p>
+
+<div class="bottom"><h3>שורה תחתונה לשאלה 2</h3><ul>
+<li class="warn"><b>לא עכשיו ולא בכוח.</b> המצב בשל אך הפריצה הגדולה עדיין חסומה בידי גורם קטן.</li>
+<li>פעולה כוחנית עכשיו = שבירת החישורים + מריבה עם שותף/בן זוג/קולגה.</li>
+<li class="good">הדרך הנכונה: נסיגה טקטית לדרך שעבדה, עידון פרטים, שכנוע עדין, צבירה הדרגתית.</li>
+<li class="info">התוצאה אם תתאזר בסבלנות: שחרור המתח (59) והגשם יורד.</li>
+</ul></div>
+</section>
+
+<!-- ============ Q3 ============ -->
+<section class="q">
+<span class="tag">שאלה 3</span>
+<h2>52 · גֶן · דְּמָמָה · הַר <small>Kên / Keeping Still, Mountain — הר מעל הר · משתנה אל 50 · דִינְג · הַקַּלַּחַת (The Caldron)</small></h2>
+
+<div class="hexrow">
+<div class="hexwrap"><div class="hex">
+<div class="l yin"></div><div class="l yin chg"></div><div class="l"></div><div class="l yin chg"></div><div class="l yin"></div><div class="l"></div>
+</div><div class="hexlabel">52 דממה</div></div>
+<div class="arrow">←</div>
+<div class="hexwrap"><div class="hex">
+<div class="l yin"></div><div class="l"></div><div class="l"></div><div class="l"></div><div class="l yin"></div><div class="l"></div>
+</div><div class="hexlabel">50 הקלחת</div></div>
+</div>
+
+<h3>המצב עכשיו</h3>
+<div class="quote">"דממה. שומר את גבו דומם כך שאינו חש עוד את גופו. הוא נכנס לחצרו ואינו רואה את אנשיו. אין אשמה."<span>פסק הדין, וילהלם</span></div>
+<p>הר על הר. <b>עצירה מוחלטת</b>. זו ההקסגרמה של מדיטציה, של סוף תנועה והתחלתה. וילהלם: "שקט אמיתי פירושו לשקוט כשהגיע הזמן לשקוט, ולהתקדם כשהגיע הזמן להתקדם." התמונה: "האדם הנעלה אינו מרשה למחשבותיו לחרוג ממצבו" – <b>להפסיק לרוץ קדימה בראש</b>. כל מחשבה שחורגת מהרגע רק מכאיבה ללב.</p>
+<p>לין (ואנג בי): גן הוא <b>גבול</b>. יש מקום שבו דברים צריכים להיעצר, וזה המקום. הואנג: "להישאר במקום" – לא פסיביות, אלא יציבות של הר. ההר לא זז, אבל הוא גם הבסיס שממנו הכול צומח.</p>
+
+<h3>הקווים המשתנים</h3>
+<div class="line"><div class="n">קו 2 <em>שש במקום השני</em></div>
+<div class="quote">"שומר את שוקיו דוממות. אינו יכול להציל את מי שהוא הולך אחריו. לבו אינו שמח."</div>
+<p>קו של <b>תסכול כן</b>. אתה עוצר, אבל מישהו שאתה קשור אליו (בוס, שותף, לקוח, אדם קרוב) ממשיך לדהור לכיוון לא נכון – ו<b>אין לך יכולת לעצור אותו</b>. השוק לא יכולה לזוז בנפרד מהגוף. וילהלם: "במקום שהאדון דוחף קדימה, המשרת, גם אם כוונותיו טובות, אינו יכול להצילו." ההנחיה: עצור את עצמך, קבל שאינך יכול לעצור אותו, ואל תיסחף.</p></div>
+<div class="line"><div class="n">קו 4 <em>שש במקום הרביעי · הקו המכריע</em></div>
+<div class="quote">"שומר את גופו (גוו) דומם. אין אשמה."</div>
+<p>הקו המכריע חיובי: <b>הצלחת להרגיע את הלב והדחפים</b>, גם אם עדיין לא השתחררת לגמרי מהם. זו לא השלמות (שהיא "שמירת הגב"), אבל זו דרגה גבוהה ונכונה. אין טעות. יש עדיין ספקות ואי-שקט, אבל הכיוון נכון ומוביל לרמה הגבוהה יותר.</p></div>
+
+<h3>לאן זה הולך: 50 · הַקַּלַּחַת</h3>
+<div class="quote">"הקלחת. מזל טוב עליון. הצלחה."</div>
+<p>זהו אחד משלוש-ארבע ההקסגרמות הטובות ביותר בספר. הקלחת היא כלי הקודש שבו הנטל הגולמי הופך למזון מזוקק – <b>טרנספורמציה, הבשלה, תרבות, שגשוג</b>. אש מעל עץ. המסר המשולב ברור: <b>העצירה של עכשיו היא הבישול</b>. מה שנראה כהשהיה הוא בעצם תהליך שבסופו יוצא דבר מזוקק ובעל ערך גבוה. ההר הופך לקלחת.</p>
+
+<div class="bottom"><h3>שורה תחתונה לשאלה 3</h3><ul>
+<li class="good"><b>עצור. עכשיו זה הזמן לעצור</b>, לא להחליט, לא לדחוף, לא להגיב.</li>
+<li class="warn">יש מישהו שאתה לא יכול להציל ממהלך שגוי – הפסק לנסות ואל תיסחף איתו.</li>
+<li>שמור על שקט פנימי גם עם ספקות. זה לא טעות, זה הכיוון הנכון.</li>
+<li class="good">התוצאה: <b>50 הקלחת – מזל טוב עליון</b>. מה שמתבשל עכשיו בדממה יצא מזוקק ויקר ערך.</li>
+</ul></div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<div class="sum">
+<h2>קריאה משולבת של שלוש השאלות</h2>
+<p style="margin-top:24px">שלוש הקריאות מספרות סיפור אחד עקבי, והוא <b>עניין של תזמון</b>:</p>
+<div class="line"><div class="n">שאלה 1 — פעל</div><p>פירוק מכוון, עכשיו, מתוך עוגן ורצון טוב. ויתור על הקרוב כדי לזכות ברחוק. אי-פעולה = קיפאון.</p></div>
+<div class="line"><div class="n">שאלה 2 — אל תדחוף</div><p>הכוח קיים אבל הפריצה חסומה. סבלנות, עידון, חזרה לדרך. דחיפה בכוח שוברת את המנגנון ויוצרת מריבה. התוצאה הנכונה של שאלה 2 מובילה בדיוק אל ההקסגרמה של שאלה 1 – שתי השאלות כרוכות זו בזו.</p></div>
+<div class="line"><div class="n">שאלה 3 — עצור לגמרי</div><p>דממה מלאה. מישהו אחר רץ לכיוון לא נכון ואינך יכול לעצור אותו. העצירה שלך היא תהליך בישול שמסתיים בהקסגרמה מהטובות בספר.</p></div>
+<p style="margin-top:30px;font-size:28px;font-weight:400">במכלול: <span class="good">שתי תוצאות סופיות מצוינות</span> (59 התפזרות, 50 הקלחת) ו<span class="warn">תוצאה מאיימת אחת</span> (12 קיפאון) שמופיעה רק אם לא פועלים בשאלה 1. הכוח שלך בחודש הקרוב הוא ב<b>ריסון ובדיוק</b>, לא בעוצמה.</p>
+</div>
+
+<footer>
+מקורות: Richard Wilhelm & Cary F. Baynes, The I Ching or Book of Changes (Princeton, 1950) ·
+Richard John Lynn, The Classic of Changes: A New Translation of the I Ching as Interpreted by Wang Bi (Columbia, 1994) ·
+Alfred Huang, The Complete I Ching (Inner Traditions, 1998) ·
+טקסט וילהלם באנגלית: <a href="http://www2.unipr.it/~deyoung/I_Ching_Wilhelm_Translation.html">unipr.it</a><br>
+הקסגרמות: 59→12 (קווים 2,4) · 9→59 (קווים 1,3) · 52→50 (קווים 2,4)
+</footer>
+</div>
+</body>
+</html>
